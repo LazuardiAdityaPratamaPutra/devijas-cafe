@@ -1,0 +1,19 @@
+.button {
+  background-color: rgba(172, 60, 8, 0.75);
+  color: white;
+  border: none;
+  padding: 10px;
+  font-family: Poppins;
+  font-weight: 600;
+  border-radius: 10px;
+  width: fit-content;
+  margin-top: 6px;
+}
+
+.button:hover {
+  background-color: rgba(126, 43, 5, 0.75);
+}
+
+.fullWidth {
+  width: 100%;
+}
