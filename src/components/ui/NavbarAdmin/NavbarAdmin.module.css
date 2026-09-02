@@ -16,7 +16,7 @@
 }
 
 .main h1 {
-  color: brown;
+  color: var(--coklat);
   font-size: 18px;
   font-family: 'Poppins';
   font-weight: 600;

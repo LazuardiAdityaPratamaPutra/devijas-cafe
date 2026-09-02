@@ -4,9 +4,11 @@ import { getOrders } from "../../../services/order.service";
 import NavbarAdmin from "../../ui/NavbarAdmin";
 import CardDashboardAdmin from "../../ui/CardDashboardAdmin";
 import Button from "../../ui/Button";
+import type { IOrder } from "../../../types/order";
+import { Link } from 'react-router';
 
 const ListOrder = () => {
-  const TABS = ["All Orders", "Pending", "Completed", "Cancelled"];
+  const TABS = ["All Orders", "Pending", "Processing", "Completed"];
   const [orders, setOrders] = useState([]);
   const [refetchOrders, setRefetchOrders] = useState(true);
   const [activeTab, setActiveTab] = useState("All Orders");
@@ -70,6 +72,67 @@ const ListOrder = () => {
             </button>
           ))}
         </section>
+
+        <table className={style.containerTable}>
+          <thead>
+            <tr>
+              <th>
+                <input type="checkbox" />
+              </th>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Table</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Status</th>
+              <th>Created</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {orders.map((order: IOrder) => {
+              const totalItems = order.cart.reduce(
+                (sum, item) => sum + item.quantity,
+                0,
+              );
+
+              return (
+                <tr key={order.id}>
+                  <td>
+                    <input type="checkbox" />
+                  </td>
+                  <td>{order.id}</td>
+                  <td>{order.customer_name}</td>
+                  <td>{order.table_number}</td>
+                  <td>{totalItems}</td>
+                  <td>{order.total.toLocaleString("id-ID")} $</td>
+                  <td>
+                    <span
+                      className={`${style.badge} ${style[order.status.toLocaleLowerCase()]}`}
+                    >
+                      {order.status}
+                    </span>
+                  </td>
+                  <td>
+                    {new Date(order.created_at).toLocaleDateString("id-ID", {
+                      day: "numeric",
+                      month: "short",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })}
+                  </td>
+                  <td>
+                    <Link to={`/order/${order.id}`}><Button className={style.btnDetail} type="button">Detail</Button></Link>
+                    {order.status === "PROCESSING" && (
+                      <Button type="button" className={style.btnCompleted} onClick={() => {}}>Completed</Button>
+                    )}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </main>
     </div>
   );

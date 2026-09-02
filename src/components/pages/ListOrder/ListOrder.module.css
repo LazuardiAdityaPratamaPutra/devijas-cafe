@@ -5,7 +5,7 @@
 
 .mainContent {
   width: 100%;
-  padding: 24px 40px; 
+  padding: 24px 40px;
   box-sizing: border-box;
 }
 
@@ -18,9 +18,10 @@
 }
 
 .header h1 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 600;
   font-size: 24px;
+  color: var(--coklat);
 }
 
 .header .btn {
@@ -55,21 +56,42 @@
   cursor: pointer;
   padding: 8px 4px;
   position: relative;
+  font-family: "Poppins";
 }
 
-/* Style saat tab aktif */
 .tabButton.active {
-  color: #2563eb; /* Warna biru */
+  color: var(--coklat);
   font-weight: 600;
 }
 
-/* Garis bawah biru untuk tab aktif */
 .tabButton.active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -9px;
   left: 0;
   right: 0;
   height: 2px;
-  background-color: #2563eb;
+  background-color: var(--coklat);
+}
+
+.badge {
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.pending {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.processing {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.completed {
+  background-color: #d1fae5;
+  color: #047857;
 }
