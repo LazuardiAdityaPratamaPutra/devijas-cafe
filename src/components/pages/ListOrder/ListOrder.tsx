@@ -12,6 +12,12 @@ const ListOrder = () => {
   const [orders, setOrders] = useState([]);
   const [refetchOrders, setRefetchOrders] = useState(true);
   const [activeTab, setActiveTab] = useState("All Orders");
+  const filteredOrders = orders.filter((order: IOrder) => {
+    if (activeTab === 'Pending') return order.status === 'PENDING';
+    if (activeTab === 'Processing') return order.status === 'PROCESSING';
+    if (activeTab === 'Completed') return order.status === 'COMPLETED';
+    return true;
+  })
 
   useEffect(() => {
     if (refetchOrders) {
@@ -91,7 +97,7 @@ const ListOrder = () => {
           </thead>
 
           <tbody>
-            {orders.map((order: IOrder) => {
+            {filteredOrders.map((order: IOrder) => {
               const totalItems = order.cart.reduce(
                 (sum, item) => sum + item.quantity,
                 0,
@@ -126,7 +132,7 @@ const ListOrder = () => {
                     <Link to={`/order/${order.id}`}><Button className={style.btnDetail} type="button">Detail</Button></Link>
                     {order.status === "PROCESSING" && (
                       <Button type="button" className={style.btnCompleted} onClick={() => {}}>Completed</Button>
-                    )}
+                    )} 
                   </td>
                 </tr>
               );
