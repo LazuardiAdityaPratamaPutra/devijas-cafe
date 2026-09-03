@@ -1,11 +1,11 @@
 import style from "./ListOrder.module.css";
 import { useEffect, useState } from "react";
-import { getOrders } from "../../../services/order.service";
+import { getOrders, updateOrders } from "../../../services/order.service";
 import NavbarAdmin from "../../ui/NavbarAdmin";
 import CardDashboardAdmin from "../../ui/CardDashboardAdmin";
 import Button from "../../ui/Button";
 import type { IOrder } from "../../../types/order";
-import { Link } from 'react-router';
+import { Link } from "react-router";
 
 const ListOrder = () => {
   const TABS = ["All Orders", "Pending", "Processing", "Completed"];
@@ -13,11 +13,17 @@ const ListOrder = () => {
   const [refetchOrders, setRefetchOrders] = useState(true);
   const [activeTab, setActiveTab] = useState("All Orders");
   const filteredOrders = orders.filter((order: IOrder) => {
-    if (activeTab === 'Pending') return order.status === 'PENDING';
-    if (activeTab === 'Processing') return order.status === 'PROCESSING';
-    if (activeTab === 'Completed') return order.status === 'COMPLETED';
+    if (activeTab === "Pending") return order.status === "PENDING";
+    if (activeTab === "Processing") return order.status === "PROCESSING";
+    if (activeTab === "Completed") return order.status === "COMPLETED";
     return true;
-  })
+  });
+
+  const handleUpdateProcessing = async (id: string) => {
+    await updateOrders(id, { status: "COMPLETED" }).then(() =>
+      setRefetchOrders(true),
+    );
+  };
 
   useEffect(() => {
     if (refetchOrders) {
@@ -129,10 +135,20 @@ const ListOrder = () => {
                     })}
                   </td>
                   <td>
-                    <Link to={`/order/${order.id}`}><Button className={style.btnDetail} type="button">Detail</Button></Link>
+                    <Link to={`/order/${order.id}`}>
+                      <Button className={style.btnDetail} type="button">
+                        Detail
+                      </Button>
+                    </Link>
                     {order.status === "PROCESSING" && (
-                      <Button type="button" className={style.btnCompleted} onClick={() => {}}>Completed</Button>
-                    )} 
+                      <Button
+                        type="button"
+                        className={style.btnCompleted}
+                        onClick={() => handleUpdateProcessing(order.id)}
+                      >
+                        Completed
+                      </Button>
+                    )}
                   </td>
                 </tr>
               );

@@ -138,3 +138,21 @@
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+
+.btnDetail {
+  background-color: #F3EFEA;
+  color: #B45309;
+  border-radius: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.btnCompleted {
+  background-color: var(--coklat);
+  color: var(--putih);
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+  border-radius: 3px;
+}
