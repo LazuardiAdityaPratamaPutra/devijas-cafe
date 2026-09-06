@@ -24,6 +24,14 @@ const routes: RouteObject[] = [
         <ListOrder />
       </ProtectedRoute>
     ),
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <ProtectedRoute>
+        <ListOrder />
+      </ProtectedRoute>
+    ),
   }
 ];
 
