@@ -18,7 +18,7 @@ const Login = () => {
     };
     const result = await login(payload);
     setLocalStorage("auth", result.token);
-    navigate("/dashboard", {replace: true});
+    navigate("/order", {replace: true});
   };
   return (
     <main className={styles.login}>
