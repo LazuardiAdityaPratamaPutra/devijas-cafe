@@ -38,7 +38,7 @@ const ListOrder = () => {
 
   return (
     <div className={style.pageWrapper}>
-      <NavbarAdmin />
+      <NavbarAdmin title="Order" />
 
       <main className={style.mainContent}>
         <header className={style.header}>

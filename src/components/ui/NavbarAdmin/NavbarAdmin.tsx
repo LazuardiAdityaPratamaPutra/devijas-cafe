@@ -3,10 +3,16 @@ import logoDeVijasCafe from "../../../assets/logo-de.png";
 import profilAdmin from "../../../assets/profil-admin.jpg";
 import { GoBellFill } from "react-icons/go";
 import { RiArrowDropDownFill } from "react-icons/ri";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Button from "../Button";
 
-const NavbarAdmin = () => {
+
+interface PropsTitle {
+  title: ReactNode
+}
+
+const NavbarAdmin = (props: PropsTitle) => {
+  const {title} = props;
   const [isDropDownOpen, setDropDownOpen] = useState(false);
   const [isBellColor, setBellColor] = useState(false);
 
@@ -29,7 +35,7 @@ const NavbarAdmin = () => {
         alt="Logo De Vijas Cafe"
         className={styles.imgLogo}
       />
-      <h1>Orders</h1>
+      <h1>{title}</h1>
       <div className={styles.profile}>
         <GoBellFill
           className={`${styles.iconBell} ${isBellColor && styles.iconBellYellow}`}

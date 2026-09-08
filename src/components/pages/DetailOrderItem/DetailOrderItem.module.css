@@ -1,0 +1,49 @@
+.pageWrapper {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.mainContent {
+  width: 100%;
+  padding: 24px 40px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnBackOrder {
+  background-color: #F3EFEA;
+  color: #B45309;
+  border-radius: 3px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.iconLeftArrow {
+  margin-right: 5px;
+  font-size: 10px;
+}
+
+.btnBackOrder:hover {
+  background-color: #E7E0D8;
+  color: #451A03;
+}
+
+.btnPrinter {
+  background-color: var(--coklat);
+  color: var(--putih);
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.iconPrinter {
+  font-size: 10px;
+  margin-right: 5px;
+}
