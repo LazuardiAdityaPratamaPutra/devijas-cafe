@@ -38,6 +38,14 @@ const DetailOrderItem = () => {
 
           <Button type={"button"} onClick={() => {handlePrint()}} className={styles.btnPrinter}><FiPrinter className={styles.iconPrinter}/> Print Receipe</Button>
         </section>
+
+        <section className={styles.leftCard}>
+          
+        </section>
+
+        <section className={styles.rightCard}>
+
+        </section>
       </main>
     </div>
   );
