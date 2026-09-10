@@ -49,34 +49,17 @@ const DetailOrderItem = () => {
         </section>
 
         <section className={styles.leftCard}>
-          <div className={styles.cardHeader}>
-            <div className={styles.cardHeaderLeft}>
+          <div className={styles.containerHeaderLeftCard}>
+            <div className={styles.serviceType}>
               <h6>SERVICE TYPE</h6>
-              <div className={styles.titleOrderAndCustomer}>
-                <div className={styles.titleOrder}>
-                  <h6>Dine-in Order</h6>
-                  <span>Table {orders?.table_number}</span>
-                </div>
-                <div className={styles.titleCustomerOrder}>
-                  <h6>CUSTOMER</h6>
-                  <span>2 Guests</span>
-                </div>
+              <div className={styles.titleOrderTable}>
+                <h4>Dine-in Order</h4>
+                <span>Table {orders?.table_number}</span>
               </div>
             </div>
-            <div className={styles.line}></div>
-            <div className={styles.customerInfo}>
-              <div className={styles.profileCustomer}>
-                <img src={profilCowok} alt="Profile Customer Cowok" />
-                <div className={styles.customerName}>
-                  <p>{orders?.customer_name}</p>
-                  <span className={styles.memberInfo}>SILVER</span>
-                </div>
-                <span>+62 821-4927-5473</span>
-              </div>
-              <div className={styles.rewardInfo}>
-                <h5>REWARDS</h5>
-                <span>1,450 pts</span>
-              </div>
+            <div className={styles.customer}>
+              <h6>CUSTOMER</h6>
+              <h4>2 Guests</h4>
             </div>
           </div>
         </section>

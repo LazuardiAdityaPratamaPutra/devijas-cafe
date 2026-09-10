@@ -55,18 +55,18 @@
   width: fit-content;
 }
 
-/* .leftCard .cardHeader .cardHeaderLeft {
+.leftCard .containerHeaderLeftCard {
   display: flex;
-  flex-direction: row;
-} */
-
-.cardHeaderLeft .titleOrderAndCustomer {
-  display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.cardHeader .cardHeaderLeft h6,
-.cardHeader .cardHeaderLeft .titleCustomerOrder h6 {
+.leftCard .containerHeaderLeftCard .serviceType .titleOrderTable {
+  display: flex;
+}
+
+.leftCard .containerHeaderLeftCard .serviceType h6,
+.leftCard .containerHeaderLeftCard .customer h6  {
   color: var(--abu-semi-mid);
   font-family: 'Poppins';
   font-size: 14px;
@@ -74,15 +74,15 @@
   letter-spacing: 0.03em;
 }
 
-.cardHeader .titleOrder h6,
-.cardHeader .cardHeaderLeft .titleCustomerOrder span {
+.leftCard .containerHeaderLeftCard .serviceType .titleOrderTable h4,
+.leftCard .containerHeaderLeftCard .customer h4  {
   color: var(--hitam);
   font-family: 'Poppins';
   font-size: 16px;
   font-weight: 600;
 }
 
-.cardHeader .titleOrder span {
+.leftCard .containerHeaderLeftCard .serviceType .titleOrderTable span {
   color: var(--oranye);
   font-weight: 700;
   font-family: 'Poppins';
