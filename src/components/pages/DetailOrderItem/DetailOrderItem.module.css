@@ -52,8 +52,52 @@
 .leftCard {
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: fit-content;
 }
 
-.pageWrapper .mainContent .leftCard .cardHeader .customerInfo .profileCustomer p {
-  color: yellow;
+/* .leftCard .cardHeader .cardHeaderLeft {
+  display: flex;
+  flex-direction: row;
+} */
+
+.cardHeaderLeft .titleOrderAndCustomer {
+  display: flex;
+  flex-direction: row;
+}
+
+.cardHeader .cardHeaderLeft h6,
+.cardHeader .cardHeaderLeft .titleCustomerOrder h6 {
+  color: var(--abu-semi-mid);
+  font-family: 'Poppins';
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.cardHeader .titleOrder h6,
+.cardHeader .cardHeaderLeft .titleCustomerOrder span {
+  color: var(--hitam);
+  font-family: 'Poppins';
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cardHeader .titleOrder span {
+  color: var(--oranye);
+  font-weight: 700;
+  font-family: 'Poppins';
+  font-size: 12px;
+  background-color: var(--oranye-muda);
+  border: 0.5px solid var(--oranye);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 3px;
+}
+
+.profileCustomer img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }

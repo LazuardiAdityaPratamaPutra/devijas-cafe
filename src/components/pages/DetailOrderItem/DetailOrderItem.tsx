@@ -26,7 +26,7 @@ const DetailOrderItem = () => {
   }, []);
 
   return (
-    <div className="pageWrapper">
+    <div className={styles.pageWrapper}>
       <NavbarAdmin title="Detail Order" />
 
       <main className={styles.mainContent}>
@@ -49,30 +49,31 @@ const DetailOrderItem = () => {
         </section>
 
         <section className={styles.leftCard}>
-          <div className="cardHeader">
-            <div className="cardHeaderLeft">
-              <h4>SERVICE TYPE</h4>
-              <div className="titleOrder">
-                <h3>Dine-in Order</h3>
-                <span>Table {orders?.table_number}</span>
-              </div>
-              <div className="titleCustomerOrder">
-                <h3>Customer</h3>
-                <span>2 Guests</span>
+          <div className={styles.cardHeader}>
+            <div className={styles.cardHeaderLeft}>
+              <h6>SERVICE TYPE</h6>
+              <div className={styles.titleOrderAndCustomer}>
+                <div className={styles.titleOrder}>
+                  <h6>Dine-in Order</h6>
+                  <span>Table {orders?.table_number}</span>
+                </div>
+                <div className={styles.titleCustomerOrder}>
+                  <h6>CUSTOMER</h6>
+                  <span>2 Guests</span>
+                </div>
               </div>
             </div>
-            <div className="line"></div>
-            <div className="customerInfo">
-              <div className="profileCustomer">
+            <div className={styles.line}></div>
+            <div className={styles.customerInfo}>
+              <div className={styles.profileCustomer}>
                 <img src={profilCowok} alt="Profile Customer Cowok" />
-                <p>cobaa</p>
-                <div className="customerName">
+                <div className={styles.customerName}>
                   <p>{orders?.customer_name}</p>
                   <span className={styles.memberInfo}>SILVER</span>
                 </div>
                 <span>+62 821-4927-5473</span>
               </div>
-              <div className="rewardInfo">
+              <div className={styles.rewardInfo}>
                 <h5>REWARDS</h5>
                 <span>1,450 pts</span>
               </div>
