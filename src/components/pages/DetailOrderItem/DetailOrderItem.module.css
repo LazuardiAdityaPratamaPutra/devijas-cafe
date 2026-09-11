@@ -53,51 +53,222 @@
   background-color: white;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: fit-content;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .leftCard .containerHeaderLeftCard {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 10rem;
 }
 
 .leftCard .containerHeaderLeftCard .serviceType .titleOrderTable {
   display: flex;
 }
 
-.leftCard .containerHeaderLeftCard .serviceType h6,
-.leftCard .containerHeaderLeftCard .customer h6  {
-  color: var(--abu-semi-mid);
-  font-family: 'Poppins';
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-}
-
-.leftCard .containerHeaderLeftCard .serviceType .titleOrderTable h4,
-.leftCard .containerHeaderLeftCard .customer h4  {
-  color: var(--hitam);
-  font-family: 'Poppins';
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.leftCard .containerHeaderLeftCard .serviceType .titleOrderTable span {
-  color: var(--oranye);
+.serviceType h6,
+.customer h6 {
+  color: #A8A29E;
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  font-size: 0.6875rem; 
   font-weight: 700;
-  font-family: 'Poppins';
-  font-size: 12px;
-  background-color: var(--oranye-muda);
-  border: 0.5px solid var(--oranye);
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  border-radius: 3px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
 }
 
-.profileCustomer img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+.titleOrderTable {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
+
+.titleOrderTable h4,
+.customer h4 {
+  color: #1C1917;
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  font-size: 1.125rem; 
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.titleOrderTable span {
+  color: #C86235;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  font-size: 0.75rem; 
+  background-color: #FFF5ED;
+  border: 1px solid #C86235;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.375rem; 
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.leftCard .line {
+  border-bottom: 1px solid #E7E1D8;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.identCustomer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FAF7F2;
+  border: 1px solid #E7E1D8;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+
+.identLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #FEF08A; 
+}
+
+.customerDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nameAndBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nameAndBadge h6 {
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1C1917;
+  margin: 0;
+}
+
+.badgeMember {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #D97706; 
+  padding: 2px 6px;
+  border-radius: 6px;
+  line-height: 1;
+}
+
+.phoneNumber {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #78716C;
+  margin: 0;
+}
+
+.rewardRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.rewardLabel {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #A8A29E;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.rewardPts {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 15px;
+  font-weight: 600;
+  color: #C86235; 
+  margin: 0;
+}
+
+.cardTimeAndBarQueue {
+  display: flex;
+  gap: 10px;
+}
+
+.cardTimeAndBarQueue .cardTime {
+  background-color: #f4f3ef;
+  border: 1px solid #E7E1D8;
+  border-radius: 4px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 50%;
+}
+
+.cardTimeAndBarQueue .cardTime h6,
+.cardTimeAndBarQueue .cardQueue h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #A8A29E;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cardTimeAndBarQueue .cardTime .minute {
+  display: flex;
+  gap: 7px;
+}
+
+.cardTimeAndBarQueue .minute .iconClock {
+  color: var(--abu-tua);
+  margin-top: 2px;
+}
+
+.cardTimeAndBarQueue .cardTime .minute p,
+.cardTimeAndBarQueue .cardQueue .queue p{
+  font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1C1917;
+}
+
+.cardTimeAndBarQueue .cardQueue {
+  background-color: #f4f3ef;
+  border: 1px solid #E7E1D8;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+  width: 50%;
+}
+
+.cardTimeAndBarQueue .cardQueue .queue {
+  display: flex;
+  gap: 7px;
+}
+
+.cardTimeAndBarQueue .cardQueue .queue .amberDot {
+  width: 10px;
+  height: 10px;
+  background-color: #D97706;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 3px;
+}
+
