@@ -356,7 +356,7 @@
   gap: 10px;
 }
 
-.cardQuickModifiers .containerCardChoice div {
+.cardQuickModifiers .containerCardChoice .cardModifiers {
   background-color: #FAF7F2;
   border: 1px solid #E7E1D8;
   border-radius: 10px;
@@ -378,6 +378,11 @@
   background-color: #F7F2EB;
 }
 
+.cardQuickModifiers .containerCardChoice .cardModiefiers.brown {
+  background-color: #C86235;
+  border-color: #C86235;
+  color: white;
+}
 
 
 @media (max-width: 360px) {

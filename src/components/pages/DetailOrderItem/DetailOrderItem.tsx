@@ -16,6 +16,11 @@ const DetailOrderItem = () => {
   const handlePrint = () => {
     window.print();
   };
+  const [isCardModifiers, setCardModifiers] = useState<boolean>(false);
+
+  const setColorBrown = () => {
+    setCardModifiers(!isCardModifiers);
+  };
 
   useEffect(() => {
     const fetchOrder = async () => {
@@ -117,7 +122,10 @@ const DetailOrderItem = () => {
             <div className={styles.line}></div>
 
             <div className={styles.containerCardChoice}>
-              <div>
+              <div
+                className={`${styles.cardModifiers} ${isCardModifiers ? styles.brown : ""}`}
+                onClick={setColorBrown}
+              >
                 <h6>Extra Shot</h6>
                 <p>+ Rp 5.000</p>
               </div>
@@ -141,7 +149,6 @@ const DetailOrderItem = () => {
                 <h6>Takeaway Packaging</h6>
                 <p>+ Rp 2.000</p>
               </div>
-              
             </div>
           </div>
         </section>
