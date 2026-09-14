@@ -16,10 +16,42 @@ const DetailOrderItem = () => {
   const handlePrint = () => {
     window.print();
   };
-  const [isCardModifiers, setCardModifiers] = useState<boolean>(false);
+  const [selectItemModifiers, setSelectedItemModifiers] = useState<String[]>(
+    [],
+  )
+  const itemModifiers = [
+    {
+      name: "Extra Shot",
+      price: "+ Rp 5.000",
+    },
+    {
+      name: "Oat Milk Swap",
+      price: "+ Rp 6.000",
+    },
+    {
+      name: "Less Ice 50%",
+      price: "Standar Ice",
+    },
+    {
+      name: "Extra Hot",
+      price: "+ Rp 0",
+    },
+    {
+      name: "Vanilla Bean Syrup",
+      price: "+ Rp 4.000",
+    },
+    {
+      name: "Takeaway Packaging",
+      price: "+ Rp 2.000",
+    },
+  ];
 
-  const setColorBrown = () => {
-    setCardModifiers(!isCardModifiers);
+  const handleModifiersClick = (modifier: string) => {
+    setSelectedItemModifiers((prev) =>
+      prev.includes(modifier)
+        ? prev.filter((item) => item !== modifier)
+        : [...prev, modifier],
+    );
   };
 
   useEffect(() => {
@@ -113,7 +145,7 @@ const DetailOrderItem = () => {
             </div>
           </div>
 
-          <div className={styles.cardQuickModifiers}>
+          <div className={styles.containerCardModifiers}>
             <div className={styles.headerModifiers}>
               <h3>QUICK MODIFIERS & ADD-ONS</h3>
               <span>FAST TOUCH</span>
@@ -121,34 +153,44 @@ const DetailOrderItem = () => {
 
             <div className={styles.line}></div>
 
-            <div className={styles.containerCardChoice}>
-              <div
-                className={`${styles.cardModifiers} ${isCardModifiers ? styles.brown : ""}`}
-                onClick={setColorBrown}
-              >
-                <h6>Extra Shot</h6>
-                <p>+ Rp 5.000</p>
-              </div>
-              <div>
-                <h6>Oat Milk Swap</h6>
-                <p>+ Rp 6.000</p>
-              </div>
-              <div>
-                <h6>Less Ice 50%</h6>
-                <p>Standar Ice</p>
-              </div>
-              <div>
-                <h6>Extra Hot</h6>
-                <p>+ Rp 0</p>
-              </div>
-              <div>
-                <h6>Vanilla Bean Syrup</h6>
-                <p>+ Rp 4.000</p>
-              </div>
-              <div>
-                <h6>Takeaway Packaging</h6>
-                <p>+ Rp 2.000</p>
-              </div>
+            <div className={styles.cardQuickModifiers}>
+              {itemModifiers.map((modifier) => {
+                const isSelected = selectItemModifiers.includes(modifier.name);
+                return (
+                  <div
+                    key={modifier.name}
+                    className={`${styles.cardItemModifiers} ${isSelected ? styles.backgroundCardBrown : ""}`}
+                    onClick={() => handleModifiersClick(modifier.name)}
+                  >
+                    <h6>{modifier.name}</h6>
+                    <p>{modifier.price}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className={styles.containerCardModifiers}>
+            <div className={styles.headerModifiers}>
+              <h3>QUICK MODIFIERS & ADD-ONS</h3>
+              <span>FAST TOUCH</span>
+            </div>
+
+            <div className={styles.line}></div>
+
+            <div className={styles.cardQuickModifiers}>
+              {itemModifiers.map((modifier) => {
+                const isSelected = selectItemModifiers.includes(modifier.name);
+                return (
+                  <div
+                    key={modifier.name}
+                    className={`${styles.cardItemModifiers} ${isSelected ? styles.backgroundCardBrown : ""}`}
+                    onClick={() => handleModifiersClick(modifier.name)}
+                  >
+                    <h6>{modifier.name}</h6>
+                    <p>{modifier.price}</p>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
