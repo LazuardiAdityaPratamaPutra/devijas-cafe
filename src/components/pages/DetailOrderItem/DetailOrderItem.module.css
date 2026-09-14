@@ -233,12 +233,11 @@
 
 .cardTimeAndBarQueue .cardTime h6,
 .cardTimeAndBarQueue .cardQueue h6 {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  color: #a8a29e;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #78716C;
   letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 .cardTimeAndBarQueue .cardTime .minute {
@@ -304,7 +303,7 @@
 .containerCardModifiers .headerModifiers h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 00;
   color: #1c1917;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -312,18 +311,21 @@
 }
 
 .containerCardModifiers .headerModifiers span {
-  background-color: #fef5d3;
-  border: 1px solid #f7cd48;
-  color: #8c4005;
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 10px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.625rem;
   font-weight: 700;
+  color: #B45309;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #FEF3C7;
+  border: 1px solid #FDE68A;
+  border-radius: 3px;
   padding: 3px 8px;
-  border-radius: 6px;
   line-height: 1;
 }
 
-.containerCardModifiers .line {
+.containerCardModifiers .line,
+.containerCardLoyalty .line {
   border-bottom: 1px solid #e7e1d8;
   margin-top: 15px;
   margin-bottom: 15px;
@@ -352,11 +354,22 @@
   font-size: 18px;
 }
 
+.cardQuickModifiers .cardItemModifiers h6 {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.75rem; 
+  font-weight: 700;
+  color: #1C1917; 
+  letter-spacing: normal;
+  margin: 0;
+}
+
 .cardQuickModifiers .cardItemModifiers p {
-  font-size: 12px;
-  color: #a8a29e;
-  font-weight: normal;
-  letter-spacing: 1px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: #78716C;
+  letter-spacing: -0.025em;
+  margin: 0;
 }
 
 .cardItemModifiers:hover {
@@ -370,8 +383,113 @@
   color: white;
 }
 
+.cardItemModifiers.backgroundCardBrown h6 {
+  color: white;
+}
+
 .cardItemModifiers.backgroundCardBrown p {
   color: white;
+}
+
+.containerCardLoyalty {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 20px 16px;
+  width: 100%;
+  max-width: 420px;
+  min-width: 320px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.containerCardLoyalty .headerLoyalty {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.containerCardLoyalty .headerLoyalty .titleLoyalty {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.containerCardLoyalty .headerLoyalty h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #1c1917;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.containerCardLoyalty .headerLoyalty p {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #78716C;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.containerCardLoyalty .headerLoyalty .badgeTitle span {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  padding: 2px 6px;
+  border-radius: 6px;
+  line-height: 1;
+  padding-top: 3px;
+  padding-bottom: 5px;
+}
+
+.containerCardLoyalty .cardFreeReserve {
+  background-color: #faf7f2;
+  border: 1px solid #e7e1d8;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 700;
+  color: #1c1917;
+  font-size: 18px;
+}
+
+.cardFreeReserve .headerFreeReserve {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.cardFreeReserve .headerFreeReserve .titleFreeReserve {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cardFreeReserve .headerFreeReserve .titleFreeReserve h3 {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.75rem; 
+  font-weight: 700;
+  color: #1C1917; 
+  letter-spacing: normal;
+  margin: 0;
+}
+
+.cardFreeReserve .headerFreeReserve .titleFreeReserve p {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: #78716C;
+  letter-spacing: -0.025em;
+  margin: 0;
 }
 
 @media (max-width: 360px) {

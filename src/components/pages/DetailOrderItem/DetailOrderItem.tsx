@@ -18,7 +18,7 @@ const DetailOrderItem = () => {
   };
   const [selectItemModifiers, setSelectedItemModifiers] = useState<String[]>(
     [],
-  )
+  );
   const itemModifiers = [
     {
       name: "Extra Shot",
@@ -169,28 +169,30 @@ const DetailOrderItem = () => {
               })}
             </div>
           </div>
-          <div className={styles.containerCardModifiers}>
-            <div className={styles.headerModifiers}>
-              <h3>QUICK MODIFIERS & ADD-ONS</h3>
-              <span>FAST TOUCH</span>
+
+          <div className={styles.containerCardLoyalty}>
+            <div className={styles.headerLoyalty}>
+              <div className={styles.titleLoyalty}>
+                <h3>Loyalty Rewards & Perks</h3>
+                <p>Gold Tier Member • 1,450 pts</p>
+              </div>
+              <div className={styles.badgeTitle}>
+                <span>GOLD</span>
+              </div>
             </div>
 
             <div className={styles.line}></div>
 
-            <div className={styles.cardQuickModifiers}>
-              {itemModifiers.map((modifier) => {
-                const isSelected = selectItemModifiers.includes(modifier.name);
-                return (
-                  <div
-                    key={modifier.name}
-                    className={`${styles.cardItemModifiers} ${isSelected ? styles.backgroundCardBrown : ""}`}
-                    onClick={() => handleModifiersClick(modifier.name)}
-                  >
-                    <h6>{modifier.name}</h6>
-                    <p>{modifier.price}</p>
-                  </div>
-                );
-              })}
+            <div className={styles.cardFreeReserve}>
+              <div className={styles.headerFreeReserve}>
+                <div className={styles.titleFreeReserve}>
+                  <h3>Free Reserve Espresso</h3>
+                  <p>Tier milestone unlock at 1,500 pts (1,450 / 1,500)</p>
+                </div>
+                <div className={styles.pointFreeReserve}>
+                  <span>50 pts away</span>
+                </div>
+              </div>
             </div>
           </div>
         </section>
