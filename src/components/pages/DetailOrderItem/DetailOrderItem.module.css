@@ -492,6 +492,157 @@
   margin: 0;
 }
 
+.cardFreeReserve .headerFreeReserve .pointFreeReserve {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #c86235;
+  margin: 0;
+}
+
+.cardFreeReserve .linePointGrey {
+  height: 10px;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 9999px; 
+  background-color: #E7E5E4; 
+  position: relative;
+  overflow: hidden; 
+}
+
+.cardFreeReserve .linePointOrange {
+  height: 100%; 
+  width: 90%; 
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+  animation: fillProgress 1s ease-out;
+}
+
+.containerDiscountCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.containerDiscountCard .contentLeftDiscount {
+  display: flex;
+  gap: 0;
+}
+
+.containerDiscountCard .contentLeftDiscount .detailDiscount {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerDiscountCard .contentLeftDiscount .iconDiscount {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F59E0B;
+  color: #FFFFFF;
+  border-radius: 12px;
+  flex-shrink: 0;
+  padding: 5px;
+}
+
+.containerDiscountCard .contentLeftDiscount .detailDiscount h6 {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.75rem; 
+  font-weight: 700;
+  color: #1C1917; 
+  letter-spacing: normal;
+  margin: 0;
+}
+
+.containerDiscountCard .contentLeftDiscount .detailDiscount p {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: #78716C;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.containerDiscountCard .contentLeftDiscount span {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  padding: 2px 6px;
+  border-radius: 6px;
+  line-height: 1;
+  padding-top: 3px;
+  padding-bottom: 5px;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #E7E5E4;
+  border-radius: 9999px; 
+  transition: 0.3s ease;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #FFFFFF;
+  border-radius: 50%; 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: 0.3s ease;
+}
+
+.switch :global(input):checked + .slider {
+  background-color: #C86235; 
+}
+
+.switch :global(input):checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.switch :global(input):focus + .slider {
+  box-shadow: 0 0 0 2px rgba(200, 98, 53, 0.2);
+}
+
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 90%; 
+  }
+}
+
 @media (max-width: 360px) {
   .cardItemModifiers {
     grid-template-columns: 1fr;

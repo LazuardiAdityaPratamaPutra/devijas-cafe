@@ -9,6 +9,7 @@ import { FaArrowLeft } from "react-icons/fa6";
 import { FiPrinter } from "react-icons/fi";
 import profilCowok from "../../../assets/profil-customer-cowok.jpg";
 import { CiClock2 } from "react-icons/ci";
+import { RiDiscountPercentFill } from "react-icons/ri";
 
 const DetailOrderItem = () => {
   const { id } = useParams();
@@ -191,6 +192,27 @@ const DetailOrderItem = () => {
                 </div>
                 <div className={styles.pointFreeReserve}>
                   <span>50 pts away</span>
+                </div>
+              </div>
+
+              <div className={styles.linePointGrey}>
+                <div className={styles.linePointOrange}></div>
+              </div>
+
+              <div className={styles.containerDiscountCard}>
+                <div className={styles.contentLeftDiscount}>
+                  <RiDiscountPercentFill className={styles.iconDiscount} />
+                  <div className={styles.detailDiscount}>
+                    <h6>10% Gold Member Perk</h6>
+                    <p>Discount removed for this order</p>
+                  </div>
+                  <span>Paused</span>
+                </div>
+                <div className={styles.contentRightDiscount}>
+                  <label className={styles.switch}>
+                    <input type="checkbox" />
+                    <span className={`${styles.slider} ${styles.round}`}></span>
+                  </label>
                 </div>
               </div>
             </div>
