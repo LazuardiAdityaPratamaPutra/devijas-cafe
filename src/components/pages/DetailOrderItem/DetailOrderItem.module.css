@@ -525,36 +525,56 @@
 
 .containerDiscountCard {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #f4f3ef;
+  border: 1px solid #e7e1d8;
+  border-radius: 12px;
+  margin-top: 15px;
 }
 
-.containerDiscountCard .contentLeftDiscount {
+.contentLeftDiscount {
   display: flex;
-  gap: 0;
+  align-items: flex-start;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
 }
 
-.containerDiscountCard .contentLeftDiscount .detailDiscount {
-  display: flex;
-  flex-direction: column;
+.iconDiscount {
+  font-size: 24px;
+  color: white;
 }
 
-.containerDiscountCard .contentLeftDiscount .iconDiscount {
-  width: 42px;
-  height: 42px;
+.iconWrapperDiscount {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #F59E0B;
-  color: #FFFFFF;
-  border-radius: 12px;
+  width: 38px;
+  height: 38px;
   flex-shrink: 0;
-  padding: 5px;
+  background-color: #F5A623;
+  border-radius: 8px;
 }
 
-.containerDiscountCard .contentLeftDiscount .detailDiscount h6 {
+.detailDiscount {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.titleRowDiscount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contentLeftDiscount .detailDiscount h6 {
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 0.75rem; 
+  font-size: 1rem; 
   font-weight: 700;
   color: #1C1917; 
   letter-spacing: normal;
@@ -572,7 +592,7 @@
 
 .containerDiscountCard .contentLeftDiscount span {
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-size: 11px;
+  font-size: 9px;
   font-weight: 800;
   color: #ffffff;
   background: linear-gradient(135deg, #F59E0B, #D97706);
@@ -581,8 +601,11 @@
   line-height: 1;
   padding-top: 3px;
   padding-bottom: 5px;
+  align-self: center; 
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
 }
-
 
 .switch {
   position: relative;

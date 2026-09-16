@@ -199,15 +199,22 @@ const DetailOrderItem = () => {
                 <div className={styles.linePointOrange}></div>
               </div>
 
+            </div>
               <div className={styles.containerDiscountCard}>
                 <div className={styles.contentLeftDiscount}>
-                  <RiDiscountPercentFill className={styles.iconDiscount} />
+                  <div className={styles.iconWrapperDiscount}>
+                    <RiDiscountPercentFill className={styles.iconDiscount} />
+                  </div>
+
                   <div className={styles.detailDiscount}>
-                    <h6>10% Gold Member Perk</h6>
+                    <div className={styles.titleRowDiscount}>
+                      <h6>10% Gold Member Perk</h6>
+                      <span className={styles.badgePaused}>PAUSED</span>
+                    </div>
                     <p>Discount removed for this order</p>
                   </div>
-                  <span>Paused</span>
                 </div>
+
                 <div className={styles.contentRightDiscount}>
                   <label className={styles.switch}>
                     <input type="checkbox" />
@@ -215,7 +222,6 @@ const DetailOrderItem = () => {
                   </label>
                 </div>
               </div>
-            </div>
           </div>
         </section>
 
