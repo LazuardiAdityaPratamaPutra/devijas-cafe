@@ -20,6 +20,11 @@ const DetailOrderItem = () => {
   const [selectItemModifiers, setSelectedItemModifiers] = useState<String[]>(
     [],
   );
+  const [isDiscountActive, setIsDiscountActive] = useState<boolean>(false);
+
+  const handleDiscountToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsDiscountActive(e.target.checked);
+  };
   const itemModifiers = [
     {
       name: "Extra Shot",
@@ -199,7 +204,9 @@ const DetailOrderItem = () => {
                 <div className={styles.linePointOrange}></div>
               </div>
             </div>
-            <div className={styles.containerDiscountCard}>
+            <div
+              className={`${styles.containerDiscountCard} ${isDiscountActive ? styles.activeCard : ""}`}
+            >
               <div className={styles.contentLeftDiscount}>
                 <div className={styles.iconWrapperDiscount}>
                   <RiDiscountPercentFill className={styles.iconDiscount} />
@@ -208,9 +215,21 @@ const DetailOrderItem = () => {
                 <div className={styles.detailDiscount}>
                   <div className={styles.titleRowDiscount}>
                     <h6>10% Gold Member Perk</h6>
-                    <span className={styles.badgePaused}>PAUSED</span>
+                    <span
+                      className={
+                        isDiscountActive
+                          ? styles.badgeActive
+                          : styles.badgePaused
+                      }
+                    >
+                      {isDiscountActive ? "ACTIVE" : "PAUSED"}
+                    </span>
                   </div>
-                  <p>Discount removed for this order</p>
+                  <p>
+                    {isDiscountActive
+                      ? "Discount applied to this order"
+                      : "Discount removed for this order"}
+                  </p>
                 </div>
               </div>
 
@@ -218,6 +237,8 @@ const DetailOrderItem = () => {
                 <label className={styles.switch}>
                   <input
                     type="checkbox"
+                    checked={isDiscountActive}
+                    onChange={handleDiscountToggle}
                   />
                   <span className={`${styles.slider} ${styles.round}`}></span>
                 </label>

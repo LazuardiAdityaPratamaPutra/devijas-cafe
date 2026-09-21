@@ -533,6 +533,12 @@
   border: 1px solid #e7e1d8;
   border-radius: 12px;
   margin-top: 15px;
+  transition: all 0.2s ease;
+}
+
+.containerDiscountCard.activeCard {
+  background-color: #FEF3C7;
+  border-color: #F59E0B;
 }
 
 .contentLeftDiscount {
@@ -595,7 +601,6 @@
   font-size: 9px;
   font-weight: 800;
   color: #ffffff;
-  background: linear-gradient(135deg, #F59E0B, #D97706);
   padding: 2px 6px;
   border-radius: 6px;
   line-height: 1;
@@ -605,6 +610,14 @@
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+}
+
+.containerDiscountCard .contentLeftDiscount .badgePaused {
+  background: #A8A29E;
+}
+
+.containerDiscountCard .contentLeftDiscount .badgeActive {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
 }
 
 .switch {
