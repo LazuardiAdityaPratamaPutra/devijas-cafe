@@ -10,6 +10,8 @@ import { FiPrinter } from "react-icons/fi";
 import profilCowok from "../../../assets/profil-customer-cowok.jpg";
 import { CiClock2 } from "react-icons/ci";
 import { RiDiscountPercentFill } from "react-icons/ri";
+import { GoChevronDown } from "react-icons/go";
+import type { IMenuItem } from "../../../types/itemDetail";
 
 const DetailOrderItem = () => {
   const { id } = useParams();
@@ -92,162 +94,190 @@ const DetailOrderItem = () => {
           </Button>
         </section>
 
-        <section className={styles.leftCard}>
-          <div className={styles.leftCardIdent}>
-            <div className={styles.containerHeaderLeftCard}>
-              <div className={styles.serviceType}>
-                <h6>SERVICE TYPE</h6>
-                <div className={styles.titleOrderTable}>
-                  <h4>Dine-in Order</h4>
-                  <span>Table {orders?.table_number}</span>
-                </div>
-              </div>
-              <div className={styles.customer}>
-                <h6>CUSTOMER</h6>
-                <h4>2 Guests</h4>
-              </div>
-            </div>
-
-            <div className={styles.line}></div>
-
-            <div className={styles.identCustomer}>
-              <div className={styles.identLeft}>
-                <img
-                  src={profilCowok}
-                  alt="Profil Customer Cowok"
-                  className={styles.avatar}
-                />
-
-                <div className={styles.customerDetails}>
-                  <div className={styles.nameAndBadge}>
-                    <h6>{orders?.customer_name}</h6>
-                    <span className={styles.badgeMember}>GOLD</span>
+        <div className={styles.contentGrid}>
+          <section className={styles.leftCard}>
+            <div className={styles.leftCardIdent}>
+              <div className={styles.containerHeaderLeftCard}>
+                <div className={styles.serviceType}>
+                  <h6>SERVICE TYPE</h6>
+                  <div className={styles.titleOrderTable}>
+                    <h4>Dine-in Order</h4>
+                    <span>Table {orders?.table_number}</span>
                   </div>
-                  <p className={styles.phoneNumber}>+62 812-4910-9921</p>
+                </div>
+                <div className={styles.customer}>
+                  <h6>CUSTOMER</h6>
+                  <h4>2 Guests</h4>
                 </div>
               </div>
 
-              <div className={styles.rewardRight}>
-                <span className={styles.rewardLabel}>REWARDS</span>
-                <p className={styles.rewardPts}>1,450 pts</p>
-              </div>
-            </div>
+              <div className={styles.line}></div>
 
-            <div className={styles.cardTimeAndBarQueue}>
-              <div className={styles.cardTime}>
-                <h6>Preparation Time</h6>
-                <div className={styles.minute}>
-                  <CiClock2 className={styles.iconClock} />
-                  <p>~8 ~10 mins</p>
-                </div>
-              </div>
-              <div className={styles.cardQueue}>
-                <h6>Bar Queue Pos</h6>
-                <div className={styles.queue}>
-                  <span className={styles.amberDot}></span>
-                  <p>#2 in Queue</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.containerCardModifiers}>
-            <div className={styles.headerModifiers}>
-              <h3>QUICK MODIFIERS & ADD-ONS</h3>
-              <span>FAST TOUCH</span>
-            </div>
-
-            <div className={styles.line}></div>
-
-            <div className={styles.cardQuickModifiers}>
-              {itemModifiers.map((modifier) => {
-                const isSelected = selectItemModifiers.includes(modifier.name);
-                return (
-                  <div
-                    key={modifier.name}
-                    className={`${styles.cardItemModifiers} ${isSelected ? styles.backgroundCardBrown : ""}`}
-                    onClick={() => handleModifiersClick(modifier.name)}
-                  >
-                    <h6>{modifier.name}</h6>
-                    <p>{modifier.price}</p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          <div className={styles.containerCardLoyalty}>
-            <div className={styles.headerLoyalty}>
-              <div className={styles.titleLoyalty}>
-                <h3>Loyalty Rewards & Perks</h3>
-                <p>Gold Tier Member • 1,450 pts</p>
-              </div>
-              <div className={styles.badgeTitle}>
-                <span>GOLD</span>
-              </div>
-            </div>
-
-            <div className={styles.line}></div>
-
-            <div className={styles.cardFreeReserve}>
-              <div className={styles.headerFreeReserve}>
-                <div className={styles.titleFreeReserve}>
-                  <h3>Free Reserve Espresso</h3>
-                  <p>Tier milestone unlock at 1,500 pts (1,450 / 1,500)</p>
-                </div>
-                <div className={styles.pointFreeReserve}>
-                  <span>50 pts away</span>
-                </div>
-              </div>
-
-              <div className={styles.linePointGrey}>
-                <div className={styles.linePointOrange}></div>
-              </div>
-            </div>
-            <div
-              className={`${styles.containerDiscountCard} ${isDiscountActive ? styles.activeCard : ""}`}
-            >
-              <div className={styles.contentLeftDiscount}>
-                <div className={styles.iconWrapperDiscount}>
-                  <RiDiscountPercentFill className={styles.iconDiscount} />
-                </div>
-
-                <div className={styles.detailDiscount}>
-                  <div className={styles.titleRowDiscount}>
-                    <h6>10% Gold Member Perk</h6>
-                    <span
-                      className={
-                        isDiscountActive
-                          ? styles.badgeActive
-                          : styles.badgePaused
-                      }
-                    >
-                      {isDiscountActive ? "ACTIVE" : "PAUSED"}
-                    </span>
-                  </div>
-                  <p>
-                    {isDiscountActive
-                      ? "Discount applied to this order"
-                      : "Discount removed for this order"}
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.contentRightDiscount}>
-                <label className={styles.switch}>
-                  <input
-                    type="checkbox"
-                    checked={isDiscountActive}
-                    onChange={handleDiscountToggle}
+              <div className={styles.identCustomer}>
+                <div className={styles.identLeft}>
+                  <img
+                    src={profilCowok}
+                    alt="Profil Customer Cowok"
+                    className={styles.avatar}
                   />
-                  <span className={`${styles.slider} ${styles.round}`}></span>
-                </label>
+
+                  <div className={styles.customerDetails}>
+                    <div className={styles.nameAndBadge}>
+                      <h6>{orders?.customer_name}</h6>
+                      <span className={styles.badgeMember}>GOLD</span>
+                    </div>
+                    <p className={styles.phoneNumber}>+62 812-4910-9921</p>
+                  </div>
+                </div>
+
+                <div className={styles.rewardRight}>
+                  <span className={styles.rewardLabel}>REWARDS</span>
+                  <p className={styles.rewardPts}>1,450 pts</p>
+                </div>
+              </div>
+
+              <div className={styles.cardTimeAndBarQueue}>
+                <div className={styles.cardTime}>
+                  <h6>Preparation Time</h6>
+                  <div className={styles.minute}>
+                    <CiClock2 className={styles.iconClock} />
+                    <p>~8 ~10 mins</p>
+                  </div>
+                </div>
+                <div className={styles.cardQueue}>
+                  <h6>Bar Queue Pos</h6>
+                  <div className={styles.queue}>
+                    <span className={styles.amberDot}></span>
+                    <p>#2 in Queue</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
 
-        <section className={styles.rightCard}></section>
+            <div className={styles.containerCardModifiers}>
+              <div className={styles.headerModifiers}>
+                <h3>QUICK MODIFIERS & ADD-ONS</h3>
+                <span>FAST TOUCH</span>
+              </div>
+
+              <div className={styles.line}></div>
+
+              <div className={styles.cardQuickModifiers}>
+                {itemModifiers.map((modifier) => {
+                  const isSelected = selectItemModifiers.includes(
+                    modifier.name,
+                  );
+                  return (
+                    <div
+                      key={modifier.name}
+                      className={`${styles.cardItemModifiers} ${isSelected ? styles.backgroundCardBrown : ""}`}
+                      onClick={() => handleModifiersClick(modifier.name)}
+                    >
+                      <h6>{modifier.name}</h6>
+                      <p>{modifier.price}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className={styles.containerCardLoyalty}>
+              <div className={styles.headerLoyalty}>
+                <div className={styles.titleLoyalty}>
+                  <h3>Loyalty Rewards & Perks</h3>
+                  <p>Gold Tier Member • 1,450 pts</p>
+                </div>
+                <div className={styles.badgeTitle}>
+                  <span>GOLD</span>
+                </div>
+              </div>
+
+              <div className={styles.line}></div>
+
+              <div className={styles.cardFreeReserve}>
+                <div className={styles.headerFreeReserve}>
+                  <div className={styles.titleFreeReserve}>
+                    <h3>Free Reserve Espresso</h3>
+                    <p>Tier milestone unlock at 1,500 pts (1,450 / 1,500)</p>
+                  </div>
+                  <div className={styles.pointFreeReserve}>
+                    <span>50 pts away</span>
+                  </div>
+                </div>
+
+                <div className={styles.linePointGrey}>
+                  <div className={styles.linePointOrange}></div>
+                </div>
+              </div>
+              <div
+                className={`${styles.containerDiscountCard} ${isDiscountActive ? styles.activeCard : ""}`}
+              >
+                <div className={styles.contentLeftDiscount}>
+                  <div className={styles.iconWrapperDiscount}>
+                    <RiDiscountPercentFill className={styles.iconDiscount} />
+                  </div>
+
+                  <div className={styles.detailDiscount}>
+                    <div className={styles.titleRowDiscount}>
+                      <h6>10% Gold Member Perk</h6>
+                      <span
+                        className={
+                          isDiscountActive
+                            ? styles.badgeActive
+                            : styles.badgePaused
+                        }
+                      >
+                        {isDiscountActive ? "ACTIVE" : "PAUSED"}
+                      </span>
+                    </div>
+                    <p>
+                      {isDiscountActive
+                        ? "Discount applied to this order"
+                        : "Discount removed for this order"}
+                    </p>
+                  </div>
+                </div>
+
+                <div className={styles.contentRightDiscount}>
+                  <label className={styles.switch}>
+                    <input
+                      type="checkbox"
+                      checked={isDiscountActive}
+                      onChange={handleDiscountToggle}
+                    />
+                    <span className={`${styles.slider} ${styles.round}`}></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section className={styles.rightCard}>
+            <div className={styles.cardHeaderOrder}>
+              <div className={styles.titleHeaderOrder}>
+                <h3>Ordered Items</h3>
+                <span>
+                  {orders?.cart.length ?? 0} Lines,{" "}
+                  {orders?.cart.reduce((sum, item) => sum + item.quantity, 0) ??
+                    0}{" "}
+                  Cups/Items
+                </span>
+              </div>
+              <div className={styles.titleExpand}>
+                <span>Expand Notes</span>
+                <GoChevronDown className={styles.iconArrowDown} />
+              </div>
+            </div>
+
+            <div className={styles.cardItemFirst}>
+              <div className={styles.cardUp}>
+                <div className={styles.contentLeftItem}>
+                  {it}
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
     </div>
   );
